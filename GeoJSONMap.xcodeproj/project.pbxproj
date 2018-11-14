@@ -12,6 +12,14 @@
 		948E925F219CA8A000D0C0D5 /* GeoJSONMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 948E9251219CA8A000D0C0D5 /* GeoJSONMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		948E926C219CAA2A00D0C0D5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948E926B219CAA2A00D0C0D5 /* MapKit.framework */; };
 		948E926E219CAA3300D0C0D5 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948E926D219CAA3300D0C0D5 /* SpriteKit.framework */; };
+		948E9272219CAD5E00D0C0D5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948E9271219CAD5E00D0C0D5 /* CoreLocation.framework */; };
+		948E927A219CAEA700D0C0D5 /* MKMapRect+GeoJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E9273219CAEA200D0C0D5 /* MKMapRect+GeoJSON.swift */; };
+		948E927B219CAEA700D0C0D5 /* GeoJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E9274219CAEA300D0C0D5 /* GeoJSON.swift */; };
+		948E927C219CAEA700D0C0D5 /* GJGeometry+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E9275219CAEA400D0C0D5 /* GJGeometry+MapKit.swift */; };
+		948E927D219CAEA700D0C0D5 /* GJError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E9276219CAEA500D0C0D5 /* GJError.swift */; };
+		948E927E219CAEA700D0C0D5 /* MKMapSize+CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E9277219CAEA500D0C0D5 /* MKMapSize+CGSize.swift */; };
+		948E927F219CAEA700D0C0D5 /* GJMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E9278219CAEA600D0C0D5 /* GJMap.swift */; };
+		948E9280219CAEA700D0C0D5 /* MKMapPoint+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E9279219CAEA700D0C0D5 /* MKMapPoint+CGPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +43,14 @@
 		948E9269219CA8D800D0C0D5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		948E926B219CAA2A00D0C0D5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		948E926D219CAA3300D0C0D5 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		948E9271219CAD5E00D0C0D5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		948E9273219CAEA200D0C0D5 /* MKMapRect+GeoJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapRect+GeoJSON.swift"; sourceTree = "<group>"; };
+		948E9274219CAEA300D0C0D5 /* GeoJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoJSON.swift; sourceTree = "<group>"; };
+		948E9275219CAEA400D0C0D5 /* GJGeometry+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GJGeometry+MapKit.swift"; sourceTree = "<group>"; };
+		948E9276219CAEA500D0C0D5 /* GJError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GJError.swift; sourceTree = "<group>"; };
+		948E9277219CAEA500D0C0D5 /* MKMapSize+CGSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapSize+CGSize.swift"; sourceTree = "<group>"; };
+		948E9278219CAEA600D0C0D5 /* GJMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GJMap.swift; sourceTree = "<group>"; };
+		948E9279219CAEA700D0C0D5 /* MKMapPoint+CGPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapPoint+CGPoint.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				948E9272219CAD5E00D0C0D5 /* CoreLocation.framework in Frameworks */,
 				948E926E219CAA3300D0C0D5 /* SpriteKit.framework in Frameworks */,
 				948E926C219CAA2A00D0C0D5 /* MapKit.framework in Frameworks */,
 			);
@@ -82,6 +99,13 @@
 		948E9250219CA8A000D0C0D5 /* GeoJSONMap */ = {
 			isa = PBXGroup;
 			children = (
+				948E9274219CAEA300D0C0D5 /* GeoJSON.swift */,
+				948E9278219CAEA600D0C0D5 /* GJMap.swift */,
+				948E9276219CAEA500D0C0D5 /* GJError.swift */,
+				948E9275219CAEA400D0C0D5 /* GJGeometry+MapKit.swift */,
+				948E9279219CAEA700D0C0D5 /* MKMapPoint+CGPoint.swift */,
+				948E9273219CAEA200D0C0D5 /* MKMapRect+GeoJSON.swift */,
+				948E9277219CAEA500D0C0D5 /* MKMapSize+CGSize.swift */,
 				948E9251219CA8A000D0C0D5 /* GeoJSONMap.h */,
 				948E9252219CA8A000D0C0D5 /* Info.plist */,
 			);
@@ -100,6 +124,7 @@
 		948E926A219CAA2A00D0C0D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				948E9271219CAD5E00D0C0D5 /* CoreLocation.framework */,
 				948E926D219CAA3300D0C0D5 /* SpriteKit.framework */,
 				948E926B219CAA2A00D0C0D5 /* MapKit.framework */,
 			);
@@ -168,6 +193,7 @@
 				TargetAttributes = {
 					948E924D219CA8A000D0C0D5 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					948E9256219CA8A000D0C0D5 = {
 						CreatedOnToolsVersion = 10.1;
@@ -214,6 +240,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				948E9280219CAEA700D0C0D5 /* MKMapPoint+CGPoint.swift in Sources */,
+				948E927A219CAEA700D0C0D5 /* MKMapRect+GeoJSON.swift in Sources */,
+				948E927F219CAEA700D0C0D5 /* GJMap.swift in Sources */,
+				948E927B219CAEA700D0C0D5 /* GeoJSON.swift in Sources */,
+				948E927C219CAEA700D0C0D5 /* GJGeometry+MapKit.swift in Sources */,
+				948E927E219CAEA700D0C0D5 /* MKMapSize+CGSize.swift in Sources */,
+				948E927D219CAEA700D0C0D5 /* GJError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +394,7 @@
 		948E9263219CA8A000D0C0D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -377,6 +411,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = maxvol.GeoJSONMap;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -385,6 +420,7 @@
 		948E9264219CA8A000D0C0D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -409,6 +445,7 @@
 		948E9266219CA8A000D0C0D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GeoJSONMapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -426,6 +463,7 @@
 		948E9267219CA8A000D0C0D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GeoJSONMapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
