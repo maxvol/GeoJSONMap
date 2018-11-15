@@ -63,6 +63,6 @@ extension ViewController: GJMapDelegate {
 Carthage setup.
 
 ```
-github "maxvol/GeoJSONMap" ~> 0.0.2
+github "maxvol/GeoJSONMap" ~> 0.0.3
 ```
 
