@@ -16,6 +16,7 @@ public class GJMap<D: GJMapDelegate> {
     private var _features: [GJFeature<D.P>] = []
     private var _mapRect: MKMapRect? = nil
     // public
+    public init() {}
     public func add(featureCollection: GJFeatureCollection<D.P>) {
         _features.append(contentsOf: featureCollection.features)
         _mapRect = nil

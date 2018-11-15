@@ -14,14 +14,14 @@ fileprivate enum GeoJSON: String {
 }
 
 public struct GJFeatureCollection<P: Codable>: Codable {
-    let type: String
-    let features: [GJFeature<P>]
+    public let type: String
+    public let features: [GJFeature<P>]
 }
 
 public struct GJFeature<P: Codable> {
-    let id: Int
-    let geometry: GJGeometry
-    let properties: P
+    public let id: Int
+    public let geometry: GJGeometry
+    public let properties: P
     
     fileprivate enum CodingKeys: String, CodingKey {
         case id
