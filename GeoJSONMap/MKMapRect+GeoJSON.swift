@@ -10,7 +10,7 @@ import CoreLocation
 import MapKit
 
 public extension MKMapRect {
-
+    
     public static func boundingMapRect(for geometry: GJGeometry) -> MKMapRect {
         switch geometry {
         case .point(let coordinate):
@@ -20,11 +20,11 @@ public extension MKMapRect {
         }
     }
     
-    public static func boundingMapRect(for feature: GJFeature) -> MKMapRect {
+    public static func boundingMapRect<P: Codable>(for feature: GJFeature<P>) -> MKMapRect {
         return boundingMapRect(for: feature.geometry)
     }
     
-    public static func boundingMapRect(for features: [GJFeature]) -> MKMapRect {
+    public static func boundingMapRect<P: Codable>(for features: [GJFeature<P>]) -> MKMapRect {
         let geometry: [GJGeometry] = features.map { $0.geometry }
         let points: [[MKMapPoint]] = geometry.map { geometry in
             switch geometry {
@@ -36,11 +36,11 @@ public extension MKMapRect {
         }
         return boundingMapRect(for: points.flatMap { $0 })
     }
-
-    public static func boundingMapRect(for featureCollections: [GJFeatureCollection]) -> MKMapRect {
+    
+    public static func boundingMapRect<P: Codable>(for featureCollections: [GJFeatureCollection<P>]) -> MKMapRect {
         return boundingMapRect(for: featureCollections.flatMap { $0.features } )
     }
-        
+    
     public static func boundingMapRect(for points: [MKMapPoint]) -> MKMapRect {
         let xs = points.map { $0.x }
         let ys = points.map { $0.y }

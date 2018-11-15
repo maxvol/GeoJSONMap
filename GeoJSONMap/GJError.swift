@@ -9,5 +9,6 @@
 import Foundation
 
 public enum GJError: Error {
+    case element(String)
     case geometry(String)
 }
