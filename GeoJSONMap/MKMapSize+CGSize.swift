@@ -12,7 +12,7 @@ import MapKit
 public extension MKMapSize {
     
     public var cgSize: CGSize {
-        return CGSize(width: self.width, height: self.height)
+        return CGSize(width: self.width * 2.0, height: self.height)
     }
     
 }
