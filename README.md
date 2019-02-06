@@ -1,6 +1,7 @@
 # GeoJSONMap
 Build maps from GeoJSON with MapKit or SpriteKit.
-SpriteKit maps can be displayed as planes in ARKit.
+
+SpriteKit maps can be displayed offline and/or as planes in ARKit.
 
 Basic usage:
 
