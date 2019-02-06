@@ -55,6 +55,8 @@ extension GJFeature: Decodable {
 public enum GJGeometry {
     case point(CLLocationCoordinate2D)
     case lineString([CLLocationCoordinate2D])
+    case polygon([[CLLocationCoordinate2D]])
+    // TODO
     
     fileprivate enum CodingKeys: String, CodingKey {
         case type
@@ -64,6 +66,7 @@ public enum GJGeometry {
     fileprivate enum Element: String {
         case Point = "Point"
         case LineString = "LineString"
+        case Polygon = "Polygon"
         // TODO
     }
 }
@@ -95,13 +98,23 @@ extension GJGeometry: Decodable {
                 }
                 return CLLocationCoordinate2D(latitude: coordinates[1], longitude: coordinates[0])
             })
+        case Element.Polygon.rawValue:
+            let coordinates = try values.decode([[[CLLocationDegrees]]].self, forKey: .coordinates)
+            self = try .polygon(coordinates.map { coordinates in
+                return try coordinates.map { coordinates in
+                    guard coordinates.count == 2 else {
+                        throw GJError.geometry("coordinates count: \(coordinates.count)")
+                    }
+                    return CLLocationCoordinate2D(latitude: coordinates[1], longitude: coordinates[0])
+                }
+            })
         default:
             throw GJError.geometry("Unexpected type: \(type)")
         }
     }
 }
 
-//GeoJSONPolygon.type: GeoJSONPolygon.self,
+//TODO:
 //GeoJSONMultiPoint.type: GeoJSONMultiPoint.self,
 //GeoJSONMultiPolygon.type: GeoJSONMultiPolygon.self,
 //GeoJSONMultiLineString.type: GeoJSONMultiLineString.self

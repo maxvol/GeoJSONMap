@@ -17,6 +17,9 @@ public extension MKMapRect {
             return boundingMapRect(for: [MKMapPoint(coordinate)])
         case .lineString(let coordinates):
             return boundingMapRect(for: coordinates.map { MKMapPoint($0) })
+        case .polygon(let coordinates):
+            return boundingMapRect(for: coordinates.flatMap { $0.map { MKMapPoint($0) } })
+        // TODO
         }
     }
     
@@ -32,6 +35,9 @@ public extension MKMapRect {
                 return [MKMapPoint(coordinate)]
             case .lineString(let coordinates):
                 return coordinates.map { MKMapPoint($0) }
+            case .polygon(let coordinates):
+                return coordinates.flatMap { $0.map { MKMapPoint($0) } }
+            // TODO
             }
         }
         return boundingMapRect(for: points.flatMap { $0 })
