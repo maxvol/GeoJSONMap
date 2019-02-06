@@ -19,12 +19,12 @@ public struct GJFeatureCollection<P: Codable>: Codable {
 }
 
 public struct GJFeature<P: Codable> {
-    public let id: Int
+//    public let id: Int?
     public let geometry: GJGeometry
     public let properties: P
     
     fileprivate enum CodingKeys: String, CodingKey {
-        case id
+//        case id
         case type
         case geometry
         case properties
@@ -47,7 +47,7 @@ extension GJFeature: Decodable {
         guard type == GeoJSON.Feature.rawValue else {
             throw GJError.element("Unexpected type: \(type)")
         }
-        self.id = try values.decode(Int.self, forKey: .id)
+//        self.id = try? values.decode(Int.self, forKey: .id)
         self.geometry = try values.decode(GJGeometry.self, forKey: .geometry)
         self.properties = try values.decode(P.self, forKey: .properties)
     }
