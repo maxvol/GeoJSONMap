@@ -19,7 +19,12 @@ public extension MKMapRect {
             return boundingMapRect(for: coordinates.map { MKMapPoint($0) })
         case .polygon(let coordinates):
             return boundingMapRect(for: coordinates.flatMap { $0.map { MKMapPoint($0) } })
-        // TODO
+        case .multiPoint(let coordinates):
+            return boundingMapRect(for: coordinates.map { MKMapPoint($0) })
+        case .multiLineString(let coordinates):
+            return boundingMapRect(for: coordinates.flatMap { $0.map { MKMapPoint($0) } })
+        case .multiPolygon(let coordinates):
+            return boundingMapRect(for: coordinates.flatMap { $0.flatMap { $0.map { MKMapPoint($0) } } })
         }
     }
     
@@ -37,7 +42,12 @@ public extension MKMapRect {
                 return coordinates.map { MKMapPoint($0) }
             case .polygon(let coordinates):
                 return coordinates.flatMap { $0.map { MKMapPoint($0) } }
-            // TODO
+            case .multiPoint(let coordinates):
+                return coordinates.map { MKMapPoint($0) }
+            case .multiLineString(let coordinates):
+                return coordinates.flatMap { $0.map { MKMapPoint($0) } }
+            case .multiPolygon(let coordinates):
+                return coordinates.flatMap { $0.flatMap { $0.map { MKMapPoint($0) } } }
             }
         }
         return boundingMapRect(for: points.flatMap { $0 })

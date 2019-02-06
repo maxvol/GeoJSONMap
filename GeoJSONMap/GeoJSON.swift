@@ -36,6 +36,7 @@ extension GJFeature: Encodable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         //        try container.encode(name, forKey: .name)
+        // TODO not implemented yet
     }
 }
 
@@ -56,7 +57,9 @@ public enum GJGeometry {
     case point(CLLocationCoordinate2D)
     case lineString([CLLocationCoordinate2D])
     case polygon([[CLLocationCoordinate2D]])
-    // TODO
+    case multiPoint([CLLocationCoordinate2D])
+    case multiLineString([[CLLocationCoordinate2D]])
+    case multiPolygon([[[CLLocationCoordinate2D]]])
     
     fileprivate enum CodingKeys: String, CodingKey {
         case type
@@ -67,7 +70,9 @@ public enum GJGeometry {
         case Point = "Point"
         case LineString = "LineString"
         case Polygon = "Polygon"
-        // TODO
+        case MultiPoint = "MultiPoint"
+        case MultiLineString = "MultiLineString"
+        case MultiPolygon = "MultiPolygon"
     }
 }
 
@@ -96,6 +101,21 @@ extension GJGeometry: Decodable {
             self = try .polygon(coordinates.map { coordinates in
                 return try coordinates.map { try GJGeometry.parse(coordinates: $0) }
             })
+        case Element.MultiPoint.rawValue:
+            let coordinates = try values.decode([[CLLocationDegrees]].self, forKey: .coordinates)
+            self = try .multiPoint(coordinates.map { try GJGeometry.parse(coordinates: $0) })
+        case Element.MultiLineString.rawValue:
+            let coordinates = try values.decode([[[CLLocationDegrees]]].self, forKey: .coordinates)
+            self = try .multiLineString(coordinates.map { coordinates in
+                return try coordinates.map { try GJGeometry.parse(coordinates: $0) }
+            })
+        case Element.MultiPolygon.rawValue:
+            let coordinates = try values.decode([[[[CLLocationDegrees]]]].self, forKey: .coordinates)
+            self = try .multiPolygon(coordinates.map { coordinates in
+                try coordinates.map { coordinates in
+                    return try coordinates.map { try GJGeometry.parse(coordinates: $0) }
+                }
+            })
         default:
             throw GJError.geometry("Unexpected type: \(type)")
         }
@@ -108,9 +128,3 @@ extension GJGeometry: Decodable {
         return CLLocationCoordinate2D(latitude: coordinates[1], longitude: coordinates[0])
     }
 }
-
-//TODO:
-//GeoJSONMultiPoint.type: GeoJSONMultiPoint.self,
-//GeoJSONMultiPolygon.type: GeoJSONMultiPolygon.self,
-//GeoJSONMultiLineString.type: GeoJSONMultiLineString.self
-
