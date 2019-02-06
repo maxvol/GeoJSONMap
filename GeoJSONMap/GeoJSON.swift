@@ -86,31 +86,26 @@ extension GJGeometry: Decodable {
         switch type {
         case Element.Point.rawValue:
             let coordinates = try values.decode([CLLocationDegrees].self, forKey: .coordinates)
-            guard coordinates.count == 2 else {
-                throw GJError.geometry("coordinates count: \(coordinates.count)")
-            }
-            self = .point(CLLocationCoordinate2D(latitude: coordinates[1], longitude: coordinates[0]))
+            let location = try GJGeometry.parse(coordinates: coordinates)
+            self = .point(location)
         case Element.LineString.rawValue:
             let coordinates = try values.decode([[CLLocationDegrees]].self, forKey: .coordinates)
-            self = try .lineString(coordinates.map { coordinates in
-                guard coordinates.count == 2 else {
-                    throw GJError.geometry("coordinates count: \(coordinates.count)")
-                }
-                return CLLocationCoordinate2D(latitude: coordinates[1], longitude: coordinates[0])
-            })
+            self = try .lineString(coordinates.map { try GJGeometry.parse(coordinates: $0) })
         case Element.Polygon.rawValue:
             let coordinates = try values.decode([[[CLLocationDegrees]]].self, forKey: .coordinates)
             self = try .polygon(coordinates.map { coordinates in
-                return try coordinates.map { coordinates in
-                    guard coordinates.count == 2 else {
-                        throw GJError.geometry("coordinates count: \(coordinates.count)")
-                    }
-                    return CLLocationCoordinate2D(latitude: coordinates[1], longitude: coordinates[0])
-                }
+                return try coordinates.map { try GJGeometry.parse(coordinates: $0) }
             })
         default:
             throw GJError.geometry("Unexpected type: \(type)")
         }
+    }
+    
+    static func parse(coordinates: [CLLocationDegrees]) throws -> CLLocationCoordinate2D {
+        guard coordinates.count == 2 else {
+            throw GJError.geometry("coordinates count: \(coordinates.count)")
+        }
+        return CLLocationCoordinate2D(latitude: coordinates[1], longitude: coordinates[0])
     }
 }
 
