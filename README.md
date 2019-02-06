@@ -3,6 +3,8 @@ Build maps from GeoJSON with MapKit or SpriteKit.
 
 SpriteKit maps can be displayed offline and/or as planes in ARKit.
 
+![alt Amstertram](https://github.com/maxvol/GeoJSONMap/blob/master/amstertram.jpeg?raw=true)
+
 Basic usage:
 
 ```swift
