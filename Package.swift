@@ -1,5 +1,5 @@
-  
 // swift-tools-version:5.1
+
 import PackageDescription
 
 let package = Package(
@@ -18,7 +18,7 @@ let package = Package(
         .target(
             name: "GeoJSONMap",
             dependencies: [],
-            path: "GeoJSONMap"),
+            path: "."),
 //        .testTarget(
 //            name: "GeoJSONMapTests",
 //            dependencies: ["GeoJSONMap"],
