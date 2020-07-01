@@ -18,7 +18,7 @@ let package = Package(
         .target(
             name: "GeoJSONMap",
             dependencies: [],
-            path: "Sources"),
+            path: "."),
 //        .testTarget(
 //            name: "GeoJSONMapTests",
 //            dependencies: ["GeoJSONMap"],
