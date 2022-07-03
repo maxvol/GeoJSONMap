@@ -24,8 +24,6 @@
 		948E924E219CA8A000D0C0D5 /* GeoJSONMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GeoJSONMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		948E9251219CA8A000D0C0D5 /* GeoJSONMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeoJSONMap.h; sourceTree = "<group>"; };
 		948E9252219CA8A000D0C0D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		948E925C219CA8A000D0C0D5 /* GeoJSONMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoJSONMapTests.swift; sourceTree = "<group>"; };
-		948E925E219CA8A000D0C0D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		948E9268219CA8D800D0C0D5 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		948E9269219CA8D800D0C0D5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		948E926B219CAA2A00D0C0D5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -60,7 +58,6 @@
 				948E9268219CA8D800D0C0D5 /* LICENSE */,
 				948E9269219CA8D800D0C0D5 /* README.md */,
 				948E9250219CA8A000D0C0D5 /* GeoJSONMap */,
-				948E925B219CA8A000D0C0D5 /* GeoJSONMapTests */,
 				948E924F219CA8A000D0C0D5 /* Products */,
 				948E926A219CAA2A00D0C0D5 /* Frameworks */,
 			);
@@ -88,15 +85,6 @@
 				948E9252219CA8A000D0C0D5 /* Info.plist */,
 			);
 			path = GeoJSONMap;
-			sourceTree = "<group>";
-		};
-		948E925B219CA8A000D0C0D5 /* GeoJSONMapTests */ = {
-			isa = PBXGroup;
-			children = (
-				948E925C219CA8A000D0C0D5 /* GeoJSONMapTests.swift */,
-				948E925E219CA8A000D0C0D5 /* Info.plist */,
-			);
-			path = GeoJSONMapTests;
 			sourceTree = "<group>";
 		};
 		948E926A219CAA2A00D0C0D5 /* Frameworks */ = {
